@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let rounds = 0;
+
+        let playerSelection;
+        let computerSelection;
+
+        function computerPlay() {
+            let choices = ['rock', 'paper', 'scissors'];
+            let choice = choices[Math.floor(Math.random()*choices.length)];
+            return choice;
+        }
+
+        function round (player, computer){
+            
+
+            if (player == 'rock') {
+                if (computer == 'paper') {console.log(`Game lost! You chose ${player} and the computer chose ${computer}`);  computerScore++;}
+                else if (computer == 'scissors'){console.log(`Game won! You chose ${player} and the computer chose ${computer}`);  playerScore++;}
+                else {console.log(`Game is a draw! You both chose ${player}`);}
+            }
+            if (player == 'paper') {
+                if (computer == 'scissors'){console.log(`Game lost! You chose ${player} and the computer chose ${computer}`);  computerScore++;}
+                else if (computer == 'rock'){console.log(`Game won! You chose ${player} and the computer chose ${computer}`);  playerScore++;}
+                else {console.log(`Game is a draw! You both chose ${player}`);}
+            }
+            if (player == 'scissors') {
+                if (computer == 'rock') {console.log(`Game lost! You chose ${player} and the computer chose ${computer}`);  computerScore++;}
+                else if (computer == 'paper') {console.log(`Game won! You chose ${player} and the computer chose ${computer}`);  playerScore++;}
+                else {console.log(`Game is a draw! You both chose ${player}`);}
+            }
+
+        }
+
+        function game () {
+            while (rounds < 5) {
+                playerSelection = prompt('Please select rock, paper, or scissors');
+                computerSelection = computerPlay();
+                console.log(round(playerSelection, computerSelection));
+                rounds++;
+            }
+            if (playerScore > computerScore) {
+                console.log(`You win with a score of ${playerScore} while the computer only had a score of ${computerScore}`);
+            } else if (computerScore > playerScore) {
+                console.log(`The computer wins with a score of ${computerScore} while you only had a score of ${playerScore}`);
+            }           
+        }
+
+        game();
+
+
+    </script>
+</body>
+</html>
